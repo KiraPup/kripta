@@ -3,6 +3,39 @@ from tkinter import ttk
 from tkinter import messagebox as mb
 import requests
 
+def update_b_label(event):
+    code = base_combobox.get()
+    name = currencies_b[code]
+    b_label.config(text=name)
+
+def update_t_label(event):
+    # Получаем полное название целевой валюты из словаря и обновляем метку
+    code = target_combobox.get()
+    name = currencies_names[code]
+    t_label.config(text=name)
+
+currencies_b ={
+    'USD':"Американский доллар",
+    'EUR':"Евро",
+    'RUB':"Российский рубль"
+}
+currencies= {
+    "BTC": 'bitcoin',
+    "ETH": 'ethereum',
+    "XRP":'ripple',
+    'USDT':'tether',
+    'BNB':'binancecoin',
+    'SOL': 'solana'
+}
+currencies_names = {
+    "BTC": 'Bitcoin',
+    "ETH": 'Ethereum',
+    "XRP": 'XRP',
+    'USDT': 'Tether',
+    'BNB': 'BNB',
+    'SOL': 'Solana'
+}
+
 window = Tk()
 window.title("Актуальная информация о криптовалюте")
 window.geometry("400x300")
